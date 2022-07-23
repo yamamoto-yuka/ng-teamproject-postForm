@@ -234,6 +234,9 @@
         <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
           SUBMIT
         </button>
+        <div class="mt-3" [hidden]="formMessageHidden">
+          Success!
+        </div>
       </div>
     </form>
   </div>

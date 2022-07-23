@@ -10,27 +10,27 @@ export class CommonService {
   constructor(private http: HttpClient) {}
 
   postItem(
-    lostOrFound: string,
     itemName: string,
+    location: string,
+    lostOrFound: string,
+    email: string,
+    phoneNumber: string,
     description: string,
     imageURL: string,
     date: string,
-    location: string,
-    name: string,
-    email: string,
-    phoneNumber: string
+    name: string
   ) {
     let contactBody = {
       data: {
+        Title:itemName,
+        Location:location,
         LostOrFound: lostOrFound,
-        Title: itemName,
-        Location: location,
+        Email:email,
+        Phonenumber:phoneNumber,
         Description: description,
-        Image: imageURL,
-        Date_found: date,
-        Claim_name: name,
-        Email: email,
-        Phonenumber: phoneNumber,
+        Image:imageURL,
+        Date_found:date,
+        Claim_name: name
       },
     };
     return this.http.post(this.URL, contactBody);

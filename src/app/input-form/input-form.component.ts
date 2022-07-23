@@ -16,13 +16,14 @@ export class InputFormComponent implements OnInit {
   name='';
   email='';
   phoneNumber='';
+  formMessageHidden = true;
 
 
   constructor(private cm:CommonService) { }
 
-  
-  submit(lostOrFound:any,itemName:any, description:any, image:any, date:any, location:any, name:any, email:any, phoneNumber:any){
-    this.cm.postItem(this.lostOrFound, this.itemName,this.description,this.image, this.date, this.location, this.name, this.email, this.phoneNumber).subscribe(data =>{
+  submit(itemName:any, location:any, lostOrFound:any,email:any, phoneNumber:any,  description:any,  image:any, date:any,  name:any){
+    this.cm.postItem( this.itemName, this.location, this.lostOrFound, this.email, this.phoneNumber, this.description,this.image, this.date, this.name).subscribe(data =>{
+      this.formMessageHidden = false;
       console.log(data);
     })
   }
